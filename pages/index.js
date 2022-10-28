@@ -21,11 +21,19 @@ export default function Home ({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>前进路上的追梦人</p>
+      <section className={utilStyles.headingCt}>
+        <h3>七律·人民解放军占领南京</h3>
         <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          钟山风雨起苍黄，百万雄师过大江。
+        </p>
+        <p>
+          虎踞龙盘今胜昔，天翻地覆慨而慷。
+        </p>
+        <p>
+          宜将剩勇追穷寇，不可沽名学霸王。
+        </p>
+        <p>
+          天若有情天亦老，人间正道是沧桑。
         </p>
       </section>
 
