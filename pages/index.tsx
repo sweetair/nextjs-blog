@@ -1,21 +1,31 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import { GetStaticProps } from 'next'
 
-import Layout, { siteTitle } from '../components/layout';
-import Date from '../components/date';
-import { getSortedPostsData } from '../lib/posts';
+import Head from 'next/head'
+import Link from 'next/link'
 
-import utilStyles from '../styles/utils.module.css';
+import Layout, { siteTitle } from '../components/layout'
+import Date from '../components/date'
+import { getSortedPostsData } from '../lib/posts'
 
-export async function getStaticProps () {
-  const allPostsData = getSortedPostsData();
+import utilStyles from '../styles/utils.module.css'
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPostsData = getSortedPostsData()
   return {
     props: {
       allPostsData,
     },
-  };
+  }
 }
-export default function Home ({ allPostsData }) {
+export default function Home({
+  allPostsData,
+}: {
+  allPostsData: {
+    date: string
+    title: string
+    id: string
+  }[]
+}) {
   return (
     <Layout home>
       <Head>
@@ -23,18 +33,10 @@ export default function Home ({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingCt}>
         <h3>七律·人民解放军占领南京</h3>
-        <p>
-          钟山风雨起苍黄，百万雄师过大江。
-        </p>
-        <p>
-          虎踞龙盘今胜昔，天翻地覆慨而慷。
-        </p>
-        <p>
-          宜将剩勇追穷寇，不可沽名学霸王。
-        </p>
-        <p>
-          天若有情天亦老，人间正道是沧桑。
-        </p>
+        <p>钟山风雨起苍黄，百万雄师过大江。</p>
+        <p>虎踞龙盘今胜昔，天翻地覆慨而慷。</p>
+        <p>宜将剩勇追穷寇，不可沽名学霸王。</p>
+        <p>天若有情天亦老，人间正道是沧桑。</p>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -52,5 +54,5 @@ export default function Home ({ allPostsData }) {
         </ul>
       </section>
     </Layout>
-  );
+  )
 }
